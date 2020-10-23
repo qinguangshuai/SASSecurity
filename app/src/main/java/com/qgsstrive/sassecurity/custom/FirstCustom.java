@@ -104,5 +104,8 @@ public class FirstCustom extends View {
         if (name.equals("true")) {
             canvas.drawLine(50, 100, 960, 100, mColorpaint);
         }
+        if (name.equals("false")) {
+            canvas.drawLine(50, 100, 960, 100, mPaint);
+        }
     }
 }

@@ -3,10 +3,13 @@ package com.qgsstrive.sassecurity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qgsstrive.sassecurity.custom.FirstCustom;
 import com.qgsstrive.sassecurity.util.SpUtil;
@@ -14,14 +17,15 @@ import com.qgsstrive.sassecurity.util.SpUtil;
 import util.ByteUtil;
 import util.HexUtil;
 
-public class MainActivity extends SerialPortActivity {
+public class MainActivity extends SerialPortActivity implements View.OnClickListener {
 
     private Context mContext = null;
     private String mEncodeHexStr;
     private String aa = "A700000000";
     private SpUtil mItcast;
     private FirstCustom mFirst;
-    private TextView mTitle,mHead;
+    private TextView mTitle, mHead;
+    private Button mUnlock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,17 @@ public class MainActivity extends SerialPortActivity {
         initView();
         initData();
     }
+
+    /*@Override
+    protected void onResume() {
+        *//**
+         * 设置为横屏
+         *//*
+        if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        }
+        super.onResume();
+    }*/
 
     @Override
     protected void onDataReceived(final byte[] buffer, final int size, final int type) {
@@ -44,7 +59,7 @@ public class MainActivity extends SerialPortActivity {
                         char[] chars = HexUtil.encodeHex(buffer);
                         mEncodeHexStr = ByteUtil.bytes2HexString(buffer, size);
                         Log.e("121212", mEncodeHexStr + "      121212");
-                        if (mEncodeHexStr.equals(aa)){
+                        if (mEncodeHexStr.equals(aa)) {
                             mItcast = new SpUtil(getApplicationContext(), "itcast");
                             mItcast.setName("true");
                             mFirst.invalidate();
@@ -61,10 +76,12 @@ public class MainActivity extends SerialPortActivity {
         mFirst = findViewById(R.id.first);
         mTitle = findViewById(R.id.title);
         mHead = findViewById(R.id.head);
+        mUnlock = findViewById(R.id.unlock);
+        mUnlock.setOnClickListener(this);
     }
 
     private void initData() {
-        //mTitle.setText("SAS非集中区调车进路安全防护系统");
+        mTitle.setText("SAS非集中区调车进路安全防护系统");
         mHead.setText("凯里SAS系统");
     }
 
@@ -86,6 +103,15 @@ public class MainActivity extends SerialPortActivity {
                     | View.SYSTEM_UI_FLAG_FULLSCREEN;
             uiFlags |= 0x00001000;
             getWindow().getDecorView().setSystemUiVisibility(uiFlags);
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.unlock:
+                Toast.makeText(mContext, "故障解锁", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 }
