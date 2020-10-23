@@ -4,11 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.qgsstrive.sassecurity.custom.FirstCustom;
+import com.qgsstrive.sassecurity.util.SpUtil;
+
+import util.ByteUtil;
+import util.HexUtil;
+
+public class MainActivity extends SerialPortActivity {
 
     private Context mContext = null;
+    private String mEncodeHexStr;
+    private String aa = "A700000000";
+    private SpUtil mItcast;
+    private FirstCustom mFirst;
+    private TextView mTitle,mHead;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +29,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mContext = MainActivity.this;
         //setSystemUIVisible(false);
+        initView();
+        initData();
+    }
+
+    @Override
+    protected void onDataReceived(final byte[] buffer, final int size, final int type) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (type == 232) {
+                        String toString = buffer.toString();
+                        char[] chars = HexUtil.encodeHex(buffer);
+                        mEncodeHexStr = ByteUtil.bytes2HexString(buffer, size);
+                        Log.e("121212", mEncodeHexStr + "      121212");
+                        if (mEncodeHexStr.equals(aa)){
+                            mItcast = new SpUtil(getApplicationContext(), "itcast");
+                            mItcast.setName("true");
+                            mFirst.invalidate();
+                        }
+                    }
+                } catch (Exception e) {
+                    Log.e("Exception", e + "");
+                }
+            }
+        });
+    }
+
+    private void initView() {
+        mFirst = findViewById(R.id.first);
+        mTitle = findViewById(R.id.title);
+        mHead = findViewById(R.id.head);
+    }
+
+    private void initData() {
+        //mTitle.setText("SAS非集中区调车进路安全防护系统");
+        mHead.setText("凯里SAS系统");
     }
 
     /**
