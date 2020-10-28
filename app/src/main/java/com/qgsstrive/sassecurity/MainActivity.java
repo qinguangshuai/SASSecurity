@@ -39,9 +39,7 @@ public class MainActivity extends SerialPortActivity implements View.OnClickList
 
     /*@Override
     protected void onResume() {
-        *//**
-         * 设置为横屏
-         *//*
+        //设置为横屏
         if (getRequestedOrientation() != ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         }
@@ -58,8 +56,13 @@ public class MainActivity extends SerialPortActivity implements View.OnClickList
                         String toString = buffer.toString();
                         char[] chars = HexUtil.encodeHex(buffer);
                         mEncodeHexStr = ByteUtil.bytes2HexString(buffer, size);
-                        Log.e("121212", mEncodeHexStr + "      121212");
+                        Log.i("121212", mEncodeHexStr + "      121212");
                         if (mEncodeHexStr.equals(aa)) {
+                            int total = 0;
+                            for (int i = 0; i < aa.length(); i += 2) {
+                                //strB.append("0x").append(strData.substring(i,i+2));  //0xC30x3C0x010x120x340x560x780xAA
+                                total = total + Integer.parseInt(aa.substring(i, i + 2), 16);
+                            }
                             mItcast = new SpUtil(getApplicationContext(), "itcast");
                             mItcast.setName("true");
                             mFirst.invalidate();

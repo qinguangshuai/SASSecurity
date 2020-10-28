@@ -126,7 +126,7 @@ public abstract class SerialPortActivity extends Activity {
         super.onCreate(savedInstanceState);
         try {
             ///dev/ashmem
-            mSerialPort = new SerialPort(new File("/dev/ttyS3"), 19200, 0);
+            mSerialPort = new SerialPort(new File("/dev/ttyS3"), 9600, 0);
             mOutputStream = mSerialPort.getOutputStream();
             mInputStream = mSerialPort.getInputStream();
             Log.i("TAG","串口打开成功232");
