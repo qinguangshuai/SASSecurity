@@ -5,6 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.qgsstrive.sassecurity.ui.CQNSASActivity;
+import com.qgsstrive.sassecurity.ui.HanDanActivity;
+import com.qgsstrive.sassecurity.ui.MainActivity;
+
 /**
  * @author  BJXT-QGS
  * @version  1.0
@@ -22,7 +26,7 @@ public class BootUpReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("XRGPS", "BootReceiver.onReceive: " + intent.getAction());
         System.out.println("自启动程序即将执行");
-        Intent i = new Intent(context,MainActivity.class);
+        Intent i = new Intent(context, HanDanActivity.class);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(i);
     }

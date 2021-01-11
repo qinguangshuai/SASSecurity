@@ -1,4 +1,4 @@
-package com.qgsstrive.sassecurity.custom;
+package com.qgsstrive.sassecurity.custom.chongqing;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -6,15 +6,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import com.qgsstrive.sassecurity.util.SpUtil;
 
 /**
  * @date 2020/10/22 15:33
+ * 货1
  */
-public class FirstCustom extends View {
+public class NinthCustom extends View {
 
     private Paint mPaint, paint;
     private Bitmap mBitmap;
@@ -22,15 +22,15 @@ public class FirstCustom extends View {
     private Paint mColorpaint;
     private Paint mTextPaint;
 
-    public FirstCustom(Context context) {
+    public NinthCustom(Context context) {
         this(context, null);
     }
 
-    public FirstCustom(Context context, AttributeSet attrs) {
+    public NinthCustom(Context context, AttributeSet attrs) {
         this(context, attrs, -1);
     }
 
-    public FirstCustom(Context context, AttributeSet attrs, int defStyleAttr) {
+    public NinthCustom(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -72,40 +72,19 @@ public class FirstCustom extends View {
         mTextPaint.setStrokeJoin(Paint.Join.ROUND);
         int height = canvas.getHeight();
         int width = canvas.getWidth();
-        Log.e("123456", width + "    111    " + height);
-        SpUtil itcast = new SpUtil(getContext(), "itcast");
-        String name = itcast.getName();
+        SpUtil cqncast9 = new SpUtil(getContext(), "cqncast9");
+        String name9 = cqncast9.getName();
 
-        canvas.drawLine(50, 130, 960, 130, mPaint);
-
-        canvas.drawLine(50, 210, 445, 210, mPaint);
-        canvas.drawText("货7",150,230,mTextPaint);
-
-        canvas.drawLine(50, 290, 400, 290, mPaint);
-        canvas.drawLine(400, 290, 450, 210, mPaint);
-        canvas.drawLine(450, 210, 650, 210, mPaint);
-        canvas.drawLine(650, 210, 700, 135, mPaint);
-        canvas.drawText("货6",150,310,mTextPaint);
-        canvas.drawText("C2",500,230,mTextPaint);
-
-        canvas.drawLine(50, 370, 400, 370, mPaint);
-        canvas.drawLine(400, 370, 450, 445, mPaint);
-        canvas.drawText("货5",150,390,mTextPaint);
-
-        canvas.drawLine(50, 450, 680, 450, mPaint);
-        canvas.drawLine(680, 450, 900, 135, mPaint);
-        canvas.drawText("货4",150,470,mTextPaint);
-        canvas.drawText("C1",600,470,mTextPaint);
-
-        canvas.drawLine(50, 530, 500, 530, mPaint);
-        canvas.drawLine(500, 530, 550, 455, mPaint);
-        canvas.drawText("货1",150,550,mTextPaint);
-
-        if (name.equals("true")) {
-            canvas.drawLine(50, 100, 960, 100, mColorpaint);
-        }
-        if (name.equals("false")) {
-            canvas.drawLine(50, 100, 960, 100, mPaint);
+        if (name9.equals("true")) {
+            canvas.drawLine(50, 540, 750, 540, mColorpaint);
+            //canvas.drawLine(750, 540,770, 480, mColorpaint);
+            canvas.drawLine(750, 540, 810, 360, mColorpaint);
+            canvas.drawLine(810, 360, 960, 360, mColorpaint);
+        } else if (name9.equals("false")) {
+            canvas.drawLine(50, 540, 750, 540, mPaint);
+            //canvas.drawLine(750, 540,770, 480, mPaint);
+            canvas.drawLine(750, 540, 810, 360, mPaint);
+            canvas.drawLine(810, 360, 960, 360, mPaint);
         }
     }
 }

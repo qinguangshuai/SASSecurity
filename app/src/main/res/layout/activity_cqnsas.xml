@@ -5,51 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.CQNSASActivity">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#696969">
+
         <TextView
             android:id="@+id/head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_centerInParent="true"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
     </RelativeLayout>
 
-    <com.qgsstrive.sassecurity.custom.kaili.HeadCustom
+    <com.qgsstrive.sassecurity.custom.chongqing.HeadCustom
+        android:id="@+id/headcustom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/seventh"
+        android:layout_marginTop="0dp" />
 
-    <com.qgsstrive.sassecurity.custom.kaili.FirstCustom
+    <com.qgsstrive.sassecurity.custom.chongqing.FirstCustom
         android:id="@+id/first"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.qgsstrive.sassecurity.custom.kaili.SecondCustom
+
+    <com.qgsstrive.sassecurity.custom.chongqing.SecondCustom
         android:id="@+id/second"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.qgsstrive.sassecurity.custom.kaili.ThridCustom
+
+    <com.qgsstrive.sassecurity.custom.chongqing.ThridCustom
         android:id="@+id/thrid"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.qgsstrive.sassecurity.custom.kaili.FourthCustom
+
+    <com.qgsstrive.sassecurity.custom.chongqing.FourthCustom
         android:id="@+id/fourth"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.qgsstrive.sassecurity.custom.kaili.FifthCustom
+
+    <com.qgsstrive.sassecurity.custom.chongqing.FifthCustom
         android:id="@+id/fifth"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.qgsstrive.sassecurity.custom.kaili.SixthCustom
-        android:id="@+id/sisth"
+
+    <com.qgsstrive.sassecurity.custom.chongqing.SixthCustom
+        android:id="@+id/sixth"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.qgsstrive.sassecurity.custom.chongqing.NinthCustom
+        android:id="@+id/ninth"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.qgsstrive.sassecurity.custom.chongqing.EighthCustom
+        android:id="@+id/eighth"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.qgsstrive.sassecurity.custom.chongqing.SeventhCustom
+        android:id="@+id/seventh"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -59,13 +87,13 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#696969">
+
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:layout_centerInParent="true"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
     </RelativeLayout>
-
 </RelativeLayout>

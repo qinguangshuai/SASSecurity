@@ -232,4 +232,34 @@ public class SpUtil {
         return sp.getBoolean("isFirst", true);
     }
 
+    // 入口
+    public String getTrack() {
+        return sp.getString("track", "");
+    }
+
+    public void setTrack(String track) {
+        editor.putString("track", track);
+        editor.commit();
+    }
+
+    // 股道
+    public String getLine() {
+        return sp.getString("line", "");
+    }
+
+    public void setLine(String line) {
+        editor.putString("line", line);
+        editor.commit();
+    }
+
+    // 状态
+    public String getState() {
+        return sp.getString("state", "");
+    }
+
+    public void setState(String state) {
+        editor.putString("state", state);
+        editor.commit();
+    }
+
 }
